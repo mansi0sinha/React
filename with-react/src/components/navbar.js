@@ -1,7 +1,8 @@
 import React from 'react'
-const Navbar=()=>{
+const Navbar=(props)=>{
 return (
     <div>
+        <h1>{props.logoText}</h1>
 <ul>
     <li>Home</li>
     <li>About</li>
