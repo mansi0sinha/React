@@ -2,7 +2,7 @@ import React from 'react'
 import "./card.css";
 const Card = (props) => {
     return (
-        <div className='card'>
+        <div className='card' style={{backgroundColor:props.color}}>
             <h4>
                 {props.title} of the card.
             </h4>

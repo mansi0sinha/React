@@ -1,8 +1,8 @@
 import React from 'react';
 import "./navbar.css";
-const Navbar=()=>{
+const Navbar= (props) =>{
     return (
-<div>
+<div >
     <nav>
         <ul>
             <li>Home</li>
