@@ -8,6 +8,9 @@ function App() {
   const [count, setCount] = useState(0);
   const [color, setColor] = useState(0);
 
+  useEffect(() => {
+    alert("Hey welcome to my page");
+  }); 
   // Fix: Empty dependency array ensures this runs ONLY once on mount
   useEffect(() => {
     alert("Hey welcome to my page");
