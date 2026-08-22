@@ -7,7 +7,7 @@ import './App.css';
 function App() {
   const [count, setCount] = useState(0);
   const [color, setColor] = useState(0);
-
+//Runs when page is rendered
   useEffect(() => {
     alert("Hey welcome to my page");
   }); 
