@@ -38,7 +38,7 @@ function App() {
           setCount(count + 1);
           setColor(color + 1); // Safely update color here on click instead
         }}>
-          Click Me
+          Click 
         </button>
       </div>
       <Footer />
