@@ -1,15 +1,16 @@
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Card from './components/card';
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useRef } from 'react';
 import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
   const [color, setColor] = useState(0);
+const a=useRef(0);
 //Runs when page is rendered
   useEffect(() => {
-    alert("Hey welcome to my page");
+    console.log(a.current=a.current+1);
   }); 
   // Fix: Empty dependency array ensures this runs ONLY once on mount
   useEffect(() => {
