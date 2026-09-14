@@ -36,7 +36,7 @@ function App() {
         <div className="value">{count}</div>
         <button onClick={() => { 
           setCount(count + 1);
-          setColor(color + 1); // Safely update color here on click instead
+          setColor(color + 1); 
         }}>
           Click  Me
         </button>
