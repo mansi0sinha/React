@@ -8,7 +8,28 @@ function App() {
   const [color, setColor] = useState(0);
   const [showbtn, setshowbtn] = useState(false);
   const a = useRef(0);
-  const 
+  const [todos,setTodos]=useState([
+    {
+      title:"Hey",
+      desc:"I am a good todo"
+    },
+    {
+      title:"Hey another todo",
+      desc:"I am also good todo"
+    },
+    {
+      title:"Hey",
+      desc:"I am a grocery todo "
+    }
+  ])
+  const Todo = ({ todo }) => {
+    return (
+      <>
+        <div className="todo">{todo.title}</div>
+        <dov className="todo">{todo.desc}</dov>
+      </>
+    )
+  }
   //Runs when page is rendered
   useEffect(() => {
     console.log(a.current = a.current + 1);
@@ -28,6 +49,19 @@ function App() {
   return (
     <>
       <Navbar />
+      {/* TODO CARDS */}
+<div className="card-container">
+  {todos.map((todo, index) => {
+    return (
+      <Card
+        key={index}
+        title={todo.title}
+        color="cyan"
+        desc={todo.desc}
+      />
+    );
+  })}
+</div>
       <div className="card-container">
         {/* Dynamically calculating color string if needed */}
         <Card title="FirstTitle" color={`cyan-${color}`} />
@@ -36,15 +70,16 @@ function App() {
       </div>
       <div>
         <button onClick={() => {
-         
+
           setshowbtn(!showbtn);
 
         }}>
           Toggle show btn
         </button>
       </div>
+
       <Footer />
-      {showbtn?<button>show btn is true</button>:<button>show btn is false</button>}
+      {showbtn ? <button>show btn is true</button> : <button>show btn is false</button>}
     </>
   );
 }
