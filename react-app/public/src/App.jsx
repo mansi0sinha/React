@@ -3,36 +3,26 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((data) => {
-        setUsers(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
+  const [form ,setform]=useState({email:"",phone:""})
+  const handleClick = () => {
+    alert("Hey i am clicked")
+  }
+const handleMouseOver=()=>{
+   alert("Hey i am mouse over")
+}
+const handleChange=(e)=>{
+  setform({...form, [e.target.name]:e.target.value})
+}
   return (
     <>
-      <div className="container">
-
-        {users.map((user) => (
-          <Card
-            key={user.id}
-            name={user.name}
-            email={user.email}
-            city={user.address.city}
-          />
-        ))}
-
-      </div>
+      <div className="button"><button onClick={handleClick}>Click ME</button></div>
+      <div className="red" onMouseOver={handleMouseOver}>I am a red</div>
+      <input type="text" value={form.name} name="email" onChange={handleChange}/>
+      <input type="text" value={form.phone} name="phone" onChange={handleChange}/>
     </>
-  );
+
+  )
 }
+
 
 export default App;
