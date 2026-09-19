@@ -1,15 +1,14 @@
-import React from 'react';
-import "./navbar.css";
-const Navbar= (props) =>{
-    return (
-<div >
-    <nav>
-        <ul>
-            <li>Home</li>
-            <li>About</li>
-        </ul>
-    </nav>
-</div>
-    )
+import React from 'react'
+import Button from './Button'
+
+const Navbar = () => {
+  return (
+    <>
+    
+    <div>Navbar</div>
+    <Button/>
+    </>
+  )
 }
-export default Navbar;
+
+export default Navbar
