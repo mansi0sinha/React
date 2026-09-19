@@ -1,25 +1,34 @@
-import Card from './components/card';
-import { useEffect, useState } from 'react';
-import './App.css';
 
+import { useEffect, useState } from 'react';
+import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import Navbar2 from './components/Navbar2';
+import Home from './Home';
+import Login from './Login';
+import About from './About';
+import User from './User';
 function App() {
-  const [form ,setform]=useState({email:"",phone:""})
-  const handleClick = () => {
-    alert("Hey i am clicked")
-  }
-const handleMouseOver=()=>{
-   alert("Hey i am mouse over")
-}
-const handleChange=(e)=>{
-  setform({...form, [e.target.name]:e.target.value})
-}
+ const router=createBrowserRouter([
+        {
+          path:"/",
+          element:<><Navbar2/><Home/></>
+        },
+        {path:"/login",
+          element:<><Navbar2/><Login/></>
+        },
+        {
+          path:"/about",
+          element:<> <Navbar2/><About/></>
+        },
+           {
+          path:"/user/:username",
+          element:<> <Navbar2/><User/></>
+        }
+    ])
   return (
-    <>
-      <div className="button"><button onClick={handleClick}>Click ME</button></div>
-      <div className="red" onMouseOver={handleMouseOver}>I am a red</div>
-      <input type="text" value={form.name} name="email" onChange={handleChange}/>
-      <input type="text" value={form.phone} name="phone" onChange={handleChange}/>
-    </>
+   <>
+  
+   <RouterProvider router={router}/>
+   </>
 
   )
 }

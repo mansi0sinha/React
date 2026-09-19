@@ -1,10 +1,23 @@
-body{
-  margin: 0;
-  padding: 0;
+nav{
+  display: flex;
+  gap:44px;
+  background-color: black;
+  color: white;
+}
+li{
+
+  list-style: none;
+  padding: 23px;
+}
+
+*{
+  padding: 0px;
+  margin: 0px;
+}
+a li{
+  color:white;
 }
 .red{
+  background-color: red;
   color:white;
-  background-color:red;
-  height: 230px;
-  width: 230px;
 }
