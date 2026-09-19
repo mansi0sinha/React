@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useMemo } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Navbar from './components/navbar';
 // import Navbar2 from './components/Navbar2';
@@ -25,16 +25,26 @@ function App() {
   //           element:<> <Navbar2/><User/></>
   //         }
   //     ])
+  const nums = new Array(30_000_000).fill(0).map((_, i) => {
+    return {
+      index: i,
+      isMagical: i === 29_000_000
 
+    }
+  })
+  const [numbers, setNumbers] = useState(nums)
+
+ const magical=useMemo(() => numbers.find(item => item.isMagical === true), [])
   const [count, setcount] = useState(0)
   return (
     <>
-      <counterContext.Provider value={{count,setcount}}>
+      <span>Magical number is {magical.index}</span>
+      {/* <counterContext.Provider value={{count,setcount}}>
         <Navbar />
       </counterContext.Provider >
       <button onClick={() => setcount(count + 1)}>
         Count is: {count}
-      </button>
+      </button>  */}
       {/* <RouterProvider router={router}/> */}
     </>
 
