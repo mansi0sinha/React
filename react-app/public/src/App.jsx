@@ -5,30 +5,32 @@ function App() {
     register,
     handleSubmit,
     watch,
-    formState: { errors ,isSubmitting},
+    formState: { errors, isSubmitting },
   } = useForm();
-  const delay=(d)=>{
-    return new Promise((resolve,reject)=>{
-      setTimeout(()=>{
+  const delay = (d) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
         resolve()
-      },d*1000);
+      }, d * 1000);
     })
   }
-  const onSubmit = async (data) =>{
-    await delay(2);//simulating network delay 
-    console.log(data)}
+  const onSubmit = async (data) => {
+    let r=await fetch("http://localhost:3000/")
+    let res=await r.text()
+    console.log(data,res)
+  }
   return (
     <>
-    {isSubmitting&& 
-    <div className="loading">Loading....</div>}
+      {isSubmitting &&
+        <div className="loading">Loading....</div>}
       <div className="container" >
         <form action="" onSubmit={handleSubmit(onSubmit)}>
 
-          <input {...register("username", { 
-              required: "Username is required", 
-              minLength: { value: 3, message: "Min length is 3" },
-              maxLength: { value: 8, message: "Max length is 8" } 
-            })}  />
+          <input {...register("username", {
+            required: "Username is required",
+            minLength: { value: 3, message: "Min length is 3" },
+            maxLength: { value: 8, message: "Max length is 8" }
+          })} />
           {errors.username && errors.username.message}
           <br />
           <input {...register("password")} type="password" placeholder='password' />
