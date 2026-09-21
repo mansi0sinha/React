@@ -1,13 +1,19 @@
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useSelector, useDispatch } from 'react-redux'
 import Navbar from './components/Navbar';
+import { decrement, increment } from "./redux/counter/counterSlice";
 function App() {
 
-  const [count, setCount] = useState(0)
+  const count = useSelector((state) => state.counter.value)
+  const dispatch = useDispatch()
   return (
    <>
    <Navbar/>
-   <button onClick={()=>setCount((count)=>count+1)}>Click is {count}</button>
+   <div>
+    <button onClick={() => dispatch(decrement())}>-</button>
+    Currently count is {count}
+    <button   onClick={() => dispatch(increment())}>+</button>
+   </div>
    </>
 
   )
